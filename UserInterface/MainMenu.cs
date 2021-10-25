@@ -6,9 +6,13 @@ namespace UserInterface
     {
         public void Menu()
         {
-            Console.WriteLine("Welcome!");
-            Console.WriteLine("[1] - Create New Account");
-            Console.WriteLine("[2] - Exit");
+            Console.WriteLine("----- Welcome to Games Galore -----");
+            Console.WriteLine("   Where Real Life Is An XP Waste");
+            Console.WriteLine("");
+            Console.WriteLine("[1] - Login Using Existing Account");
+            Console.WriteLine("[2] - Create New Account");
+            Console.WriteLine("[3] - View The Store Front");
+            Console.WriteLine("[4] - Exit");
         }
 
         public MenuType UserChoice()
@@ -17,8 +21,14 @@ namespace UserInterface
             switch (userChoice)
             {
                 case "1":
-                    return MenuType.AddCustomer;
+                    Console.WriteLine("testing");
+                    Console.ReadLine();
+                    return MenuType.MainMenu;
                 case "2":
+                    return MenuType.AddCustomer;
+                case "3":
+                    return MenuType.StoreFront;
+                case "4":
                     return MenuType.Exit;
                 default:
                     Console.WriteLine("Please Select From The Options Provided");

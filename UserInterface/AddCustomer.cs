@@ -2,6 +2,7 @@ using System;
 using BusinessLogic;
 using DataLogic;
 using Models;
+using System.IO;
 
 namespace UserInterface
 {
@@ -25,7 +26,8 @@ namespace UserInterface
             Console.WriteLine("[3] - Edit Email");
             Console.WriteLine("[4] - Edit Phone Number");
             Console.WriteLine("[5] - Submit Customer");
-            Console.WriteLine("[6] - Exit");
+            Console.WriteLine("[6] - Return To Main Menu");
+            Console.WriteLine("[7] - Exit");
         }
 
         public MenuType UserChoice()
@@ -55,6 +57,9 @@ namespace UserInterface
                     Console.ReadLine();
                     return MenuType.AddCustomer;
                 case "6":
+                    Console.WriteLine("Returning to Main Menu");
+                    return MenuType.MainMenu;
+                case "7":
                     return MenuType.Exit;
                 default:
                     Console.WriteLine("Please Select From The Options Provided");

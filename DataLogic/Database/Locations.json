@@ -1,0 +1,12 @@
+[
+    {
+        "Location": "Maine",
+        "Address": "156 McBurnie Rd. Presque Isle",
+        "Hours": "7:00AM - 7:00PM"
+    },
+    {
+        "Location": "California",
+        "Address": "351 E Monte Vista Ave. Turlock",
+        "Hours":"7:00AM - 7:00PM"
+    }
+]

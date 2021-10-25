@@ -1,0 +1,20 @@
+// make sure if user enters something that shouldn't work it asks them to enter something correctly
+// how do I attach a list of products in a json file to a storefront location?
+// How do I make the quantity of products dynamic?
+// how do I allow a customer to login using their information?
+    //^ this can be done using a linq method?
+
+//Find a way to use customer information to allow customer to place an order
+    //^this can be done through verificaiton -- essentially you look for information and if info isn't found use a try/catch
+    //this is what joshua was describing to sarah on 10/25
+//find a way to view order history
+//Find a way to replenish inventory 
+//app should contain atleast 10 meaningful unti tests
+
+//LINEITEM CAN BE MADE IN THE DATA LAYER TO MAKE A DYNAMICLY CHANGING PRODUCT LIST
+
+
+//adam's advice on logging in: using linq to find a restaurant like stephen did in the lecture
+but instead of looking for a resaturant it looks for a customer
+
+//watch the video on the 19th

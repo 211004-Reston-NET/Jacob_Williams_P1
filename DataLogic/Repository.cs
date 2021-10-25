@@ -8,7 +8,7 @@ namespace DataLogic
 {
     public class Repository : IRepository
     {
-        private const string _filepath ="./..DataLogic/Database/";
+        private const string _filepath ="./../DataLogic/Database/";
         private string _jsonString;
 
         public Customer AddCustomer(Customer p_rest)

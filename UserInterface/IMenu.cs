@@ -4,6 +4,8 @@ namespace UserInterface
     {
         MainMenu,
         AddCustomer,
+        StoreFront,
+        Locations,
         Exit,
     }
 
