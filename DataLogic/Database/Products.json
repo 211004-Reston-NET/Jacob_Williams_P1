@@ -1,0 +1,92 @@
+[
+    {
+        "Brand": "Sony",
+        "Name": "Playstation",
+        "Price": 400.00,
+        "Description": 
+    },
+    {
+        "Brand": "Microsoft",
+        "Name": "Xbox",
+        "Price": 300.00,
+        "Description": 
+    },
+    {
+        "Brand": "Nintendo",
+        "Name": "Wii",
+        "Price": 300.00,
+        "Description":
+    },
+    {
+        "Brand": "Nintendo",
+        "Name": "Nintendo DS",
+        "Price": 200.00,
+        "Description":
+    },
+    {
+        "Brand": "Dell",
+        "Name": "Alienware Laptop",
+        "Price": 1500.00,
+        "Description":
+    },
+    {
+        "Brand": "Rockstar Games",
+        "Name": "Grand Theft Auto",
+        "Price": 60.00,
+        "Description":
+    },
+    {
+        "Brand": "Rockstar Games",
+        "Name": "Read Dead Redemption",
+        "Price": 60.00,
+        "Description"
+    },
+    {
+        "Brand": "Bethesda Softworks",
+        "Name": "Skyrim",
+        "Price": 60.00,
+        "Description"
+    },
+    {
+        "Brand": "Bethesda Softworks",
+        "Name": "Fallout",
+        "Price": 60.00,
+        "Description"
+    },
+    {
+        "Brand": "Activision",
+        "Name": "Call of Duty",
+        "Price": 60.00,
+        "Description"
+    },
+    {
+        "Brand": "Activision",
+        "Name": "Tony Hawk's Pro Skater",
+        "Price": 60.00,
+        "Description"
+    },
+    {
+        "Brand": "Valve Corporation",
+        "Name": "Counter-Strike: Global Offensive",
+        "Price": 60.00,
+        "Description"
+    },
+    {
+        "Brand":"Valve Corporation",
+        "Name": "Dota 2",
+        "Price": 60.00,
+        "Description"
+    },
+    {
+        "Brand": "Electronic Arts",
+        "Name": "Apex Legends",
+        "Price": 60.00,
+        "Description"
+    },
+    {
+        "Brand": "Electronic Arts",
+        "Name": "FIFA 22",
+        "Price": 60.00,
+        "Description"
+    }
+]
