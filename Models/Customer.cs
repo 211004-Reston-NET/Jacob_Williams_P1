@@ -52,6 +52,5 @@ namespace Models
                 _phoneNumber = value;
             }
         }
-        
     }
 }
