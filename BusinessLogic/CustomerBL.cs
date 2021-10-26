@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using DataLogic;
 using Models;
 
@@ -28,6 +29,13 @@ namespace BusinessLogic
             {
                 listOfCustomer[i].Name = listOfCustomer[i].Name.ToLower();
             }
+            return listOfCustomer;
+        }
+
+        public List<Customer> GetCustomer(string p_name)
+        {
+            List<Customer> listOfCustomer = _repo.GetAllCustomer();
+            //return listOfCustomer.Where(cust => cust.Name.ToLower().Contains(p_name.ToLower()));
             return listOfCustomer;
         }
     }

@@ -6,6 +6,9 @@ namespace UserInterface
         AddCustomer,
         StoreFront,
         Locations,
+        ShowCustomer,
+        CustomerMenu,
+        CurrentCustomer,
         Exit,
     }
 
