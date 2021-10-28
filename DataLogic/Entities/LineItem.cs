@@ -5,20 +5,19 @@ using System.Collections.Generic;
 
 namespace DataLogic.Entities
 {
-    public partial class Order
+    public partial class LineItem
     {
-        public Order()
+        public LineItem()
         {
             ItemsInOrders = new HashSet<ItemsInOrder>();
         }
 
-        public int OrdersId { get; set; }
-        public int CustomerId { get; set; }
+        public int LineItemId { get; set; }
+        public int LineItemQuantity { get; set; }
+        public int ProductId { get; set; }
         public int StoreFrontId { get; set; }
-        public decimal TotalPrice { get; set; }
-        public string Address { get; set; }
 
-        public virtual Customer Customer { get; set; }
+        public virtual Product Product { get; set; }
         public virtual StoreFront StoreFront { get; set; }
         public virtual ICollection<ItemsInOrder> ItemsInOrders { get; set; }
     }

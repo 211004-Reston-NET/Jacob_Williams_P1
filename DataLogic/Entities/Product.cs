@@ -9,14 +9,14 @@ namespace DataLogic.Entities
     {
         public Product()
         {
-            Stocks = new HashSet<Stock>();
+            LineItems = new HashSet<LineItem>();
         }
 
         public int ProductId { get; set; }
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }
-        public int? ProductPrice { get; set; }
+        public double ProductPrice { get; set; }
 
-        public virtual ICollection<Stock> Stocks { get; set; }
+        public virtual ICollection<LineItem> LineItems { get; set; }
     }
 }

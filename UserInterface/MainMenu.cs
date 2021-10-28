@@ -11,7 +11,7 @@ namespace UserInterface
             Console.WriteLine("");
             Console.WriteLine("[1] - Login Using Existing Account");
             Console.WriteLine("[2] - Create New Account");
-            Console.WriteLine("[3] - Go To Store Menu");
+            Console.WriteLine("[3] - Go To StoreFront Menu");
             Console.WriteLine("[4] - Exit");
         }
 
@@ -21,13 +21,14 @@ namespace UserInterface
             switch (userChoice)
             {
                 case "1":
-                    Console.WriteLine("testing");
+                    Console.WriteLine("       Welcome Back!");
+                    Console.WriteLine("Please Press Enter To Continue");
                     Console.ReadLine();
-                    return MenuType.MainMenu;
+                    return MenuType.LoginMenu;
                 case "2":
                     return MenuType.AddCustomer;
                 case "3":
-                    return MenuType.CustomerMenu;
+                    return MenuType.StoreFrontMenu;
                 case "4":
                     return MenuType.Exit;
                 default:

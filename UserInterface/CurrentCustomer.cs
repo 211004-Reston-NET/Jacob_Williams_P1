@@ -15,7 +15,7 @@ namespace UserInterface
 
         public void Menu()
         {
-            List<Customer> listOfCust = _custBL.GetCustomer(ShowCustomer._findCustName);
+            List<Customer> listOfCust = _custBL.GetAllCustomer();
 
             Console.WriteLine("This is the search result");
             foreach (Customer cust in listOfCust)

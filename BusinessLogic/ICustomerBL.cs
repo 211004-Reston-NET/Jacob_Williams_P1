@@ -9,8 +9,9 @@ namespace BusinessLogic
         List<Customer> GetAllCustomer();
         //adding a customer to the list
         Customer AddCustomer(Customer p_rest);
+        Customer GetCustomer(string p_name, string p_address);
 
-        List<Customer> GetCustomer(string p_name);
+        
     }
 
 

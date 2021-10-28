@@ -4,11 +4,12 @@ namespace UserInterface
     {
         MainMenu,
         AddCustomer,
-        StoreFront,
-        Locations,
+        LoginMenu,
         ShowCustomer,
-        CustomerMenu,
+        StoreFrontMenu,
         CurrentCustomer,
+        MaineLocationMenu,
+        CaliforniaLocationMenu,
         Exit,
     }
 

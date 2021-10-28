@@ -16,7 +16,7 @@ namespace DataLogic.Entities
         public string CustomerName { get; set; }
         public string CustomerAddress { get; set; }
         public string CustomerEmail { get; set; }
-        public string CustomerPhonenumber { get; set; }
+        public int CustomerPhonenumber { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
     }

@@ -45,5 +45,15 @@ namespace DataLogic
             }
             return JsonSerializer.Deserialize<List<Customer>>(_jsonString);
         }
+
+        public List<LineItems> GetAllLineItems()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<StoreFront> GetStoreFrontList()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Models
 {
     public class Customer
     {
+        private int _customerId;
         private string _name;
         private string _address;
         private string _email;
-        private string _phoneNumber;
+        private int _phoneNumber;
         public string Name
         {
             get
@@ -41,7 +43,7 @@ namespace Models
                 _email = value;
             }
         }
-        public string PhoneNumber
+        public int PhoneNumber
         {
             get
             {
@@ -52,5 +54,18 @@ namespace Models
                 _phoneNumber = value;
             }
         }
+        public int CustomerId
+        {
+            get
+            {
+                return _customerId;
+            }
+            set
+            {
+                _customerId = value;
+            }
+        }
+        public List<Order> Orders { get; set; }
+
     }
 }

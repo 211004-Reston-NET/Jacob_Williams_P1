@@ -15,7 +15,7 @@ namespace BusinessLogic
         }
         public Customer AddCustomer(Customer p_customer)
         {
-            if (p_customer.Name == null || p_customer.Address == null || p_customer.Email == null || p_customer.PhoneNumber == null)
+            if (p_customer.Name == null || p_customer.Address == null || p_customer.Email == null)
             {
                 throw new Exception("You must have a value in all of the properties");
             }
@@ -32,11 +32,10 @@ namespace BusinessLogic
             return listOfCustomer;
         }
 
-        public List<Customer> GetCustomer(string p_name)
+        public Customer GetCustomer(string p_name, string p_address)
         {
             List<Customer> listOfCustomer = _repo.GetAllCustomer();
-            //return listOfCustomer.Where(cust => cust.Name.ToLower().Contains(p_name.ToLower()));
-            return listOfCustomer;
+            return listOfCustomer.FirstOrDefault(cust => cust.Name.ToLower().Contains(p_name.ToLower()) && cust.Address.ToLower().Contains(p_address.ToLower()));
         }
     }
 }
