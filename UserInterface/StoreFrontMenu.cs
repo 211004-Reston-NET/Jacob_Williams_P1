@@ -1,12 +1,27 @@
 using System;
+using System.Collections.Generic;
+using BusinessLogic;
+using Models;
 
 namespace UserInterface
 {
     public class StoreFrontMenu : IMenu
     {
+        private StoreFrontBL _storeFrontBL;
+        public StoreFrontMenu(StoreFrontBL p_storeFrontBL)
+        {
+            _storeFrontBL = p_storeFrontBL;
+        }
+
         public void Menu()
         {
+            List<StoreFront> listOfStoreFronts = _storeFrontBL.GetStoreFrontList();
             Console.WriteLine("    Welcome To The StoreFront Menu");
+            foreach (StoreFront store in listOfStoreFronts)
+            {
+                Console.WriteLine(store);
+                Console.WriteLine("----------------");
+            }
             Console.WriteLine("Please Choose The Store Closest To You");
             Console.WriteLine("[1] - 156 McBurnie Rd. Presque Isle, ME");
             Console.WriteLine("[2] - 351 E Monte Vist Ave. Turlock, CA");
@@ -20,8 +35,10 @@ namespace UserInterface
             switch (userChoice)
             {
                 case "1":
+                    SingletonCustomer.order.StoreFrontId = 1;
                     return MenuType.MaineLocationMenu;
                 case "2":
+                    SingletonCustomer.order.StoreFrontId = 2;
                     return MenuType.CaliforniaLocationMenu;
                 case "3":
                     return MenuType.MainMenu;

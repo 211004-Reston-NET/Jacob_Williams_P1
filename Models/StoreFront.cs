@@ -42,5 +42,9 @@ namespace Models
                 _storeFrontAddress = value;
             }
         }
+        public override string ToString()
+        {
+            return $"Name: {StoreFrontName} \nAddress: {StoreFrontAddress}";
+        }
     }
 }

@@ -68,7 +68,32 @@ namespace DataLogic
             //???
         }
 
-        public List<Model.StoreFront> GetStoreFrontList(Model.StoreFront store)
+        public List<Model.Product> GetAllProduct()
+        {
+            return _context.Products.Select(prod => new Models.Product()
+            {
+                ProductId = prod.ProductId,
+                ProductName = prod.ProductName,
+                ProductDescription = prod.ProductDescription,
+                ProductPrice = (int)prod.ProductPrice
+            }
+            ).ToList();
+        }
+        
+        public Product GetProductByProductId(int p_productId)
+        {
+            var result = _context.Products
+                .FirstOrDefault<Entity.Product>(prod => prod.ProductId == p_productId);
+            return new Models.Product()
+            {
+                ProductName = result.ProductName,
+                ProductPrice = (int)result.ProductPrice,
+                ProductDescription = result.ProductDescription,
+                ProductId = result.ProductId
+            };
+        }
+
+        public List<Model.StoreFront> GetStoreFrontList()
         {
             return _context.StoreFronts.Select(store => new Models.StoreFront()
             {
@@ -77,12 +102,6 @@ namespace DataLogic
                 StoreFrontId = store.StoreFrontId,
             }
             ).ToList();
-        }
-
-        public List<StoreFront> GetStoreFrontList()
-        {
-            throw new System.NotImplementedException();
-            //???
         }
 
         // public List<Product> GetAllProduct()

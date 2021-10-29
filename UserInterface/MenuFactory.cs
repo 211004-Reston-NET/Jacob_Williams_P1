@@ -24,12 +24,18 @@ namespace UserInterface
             {
                 // case MenuType.Locations:
                 //     return new Locations();
+                case MenuType.ProductMenu:
+                    return new ProductMenu(new ProductBL(new RepositoryCloud(new Project_0_DatabaseContext(options))));
+                case MenuType.CaliforniaLocationMenu:
+                    return new CaliforniaLocationMenu();
+                case MenuType.MaineLocationMenu:
+                    return new MaineLocationMenu();
                 case MenuType.LoginMenu:
                     return new LoginMenu(new CustomerBL(new RepositoryCloud(new Project_0_DatabaseContext(options))));
                 case MenuType.MainMenu:
                     return new MainMenu();
                 case MenuType.StoreFrontMenu:
-                    return new StoreFrontMenu();
+                    return new StoreFrontMenu(new StoreFrontBL(new RepositoryCloud(new Project_0_DatabaseContext(options))));
                 case MenuType.ShowCustomer:
                     return new ShowCustomer(new CustomerBL(new RepositoryCloud(new Project_0_DatabaseContext(options))));
                 case MenuType.AddCustomer:

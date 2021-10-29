@@ -10,6 +10,7 @@ namespace UserInterface
         CurrentCustomer,
         MaineLocationMenu,
         CaliforniaLocationMenu,
+        ProductMenu,
         Exit,
     }
 

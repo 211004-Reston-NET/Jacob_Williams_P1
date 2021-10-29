@@ -51,6 +51,16 @@ namespace DataLogic
             throw new NotImplementedException();
         }
 
+        public List<Product> GetAllProduct()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Product GetProductByProductId(int p_productId)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<StoreFront> GetStoreFrontList()
         {
             throw new NotImplementedException();

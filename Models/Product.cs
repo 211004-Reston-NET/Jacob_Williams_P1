@@ -55,6 +55,11 @@ namespace Models
                 _productPrice = value;
             }
         }
+
         public List<LineItems> LineItems { get; set; }
+        public override string ToString(){
+            return $"Name: {ProductName} \nPrice: {ProductPrice} \nDescription: {ProductDescription}";
+        }
+
     }
 }

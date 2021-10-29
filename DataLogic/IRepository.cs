@@ -31,6 +31,10 @@ namespace DataLogic
         List<StoreFront> GetStoreFrontList();
 
 
+        List<Product> GetAllProduct();
+        Product GetProductByProductId(int p_productId);
+
+
 
     }
 }
