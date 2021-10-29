@@ -56,12 +56,27 @@ namespace DataLogic
             throw new NotImplementedException();
         }
 
+        public Order GetOrderByProductAndStoreFrontId(int p_productId, int p_storeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Order> GetOrders()
+        {
+            throw new NotImplementedException();
+        }
+
         public Product GetProductByProductId(int p_productId)
         {
             throw new NotImplementedException();
         }
 
         public List<StoreFront> GetStoreFrontList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Order PlaceOrder(int p_productId, int p_storeId)
         {
             throw new NotImplementedException();
         }

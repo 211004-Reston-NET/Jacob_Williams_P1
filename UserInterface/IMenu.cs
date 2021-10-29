@@ -11,6 +11,7 @@ namespace UserInterface
         MaineLocationMenu,
         CaliforniaLocationMenu,
         ProductMenu,
+        OrderMenu,
         Exit,
     }
 

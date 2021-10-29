@@ -79,7 +79,17 @@ namespace DataLogic
             }
             ).ToList();
         }
-        
+
+        public Order GetOrderByProductAndStoreFrontId(int p_productId, int p_storeId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<Order> GetOrders()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public Product GetProductByProductId(int p_productId)
         {
             var result = _context.Products
@@ -104,9 +114,30 @@ namespace DataLogic
             ).ToList();
         }
 
-        // public List<Product> GetAllProduct()
+        public Model.Order PlaceOrder(Models.Order p_productId, Models.Order p_storeFrontId)
+        {
+            return null;
+        }
+
+        public Order PlaceOrder(int p_productId, int p_storeId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        // public Model.Customer AddCustomer(Model.Customer p_cust)
         // {
-        //     throw new System.NotImplementedException();
+        //     _context.Customers.Add
+        //     (
+        //         new Entity.Customer()
+        //         {
+        //             CustomerName = p_cust.Name,
+        //             CustomerAddress = p_cust.Address,
+        //             CustomerEmail = p_cust.Email,
+        //             CustomerPhonenumber = p_cust.PhoneNumber,                   
+        //         }
+        //     );
+        //     _context.SaveChanges();
+        //     return p_cust;
         // }
     }
 }

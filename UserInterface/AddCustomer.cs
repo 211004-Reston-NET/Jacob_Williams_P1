@@ -53,10 +53,10 @@ namespace UserInterface
                     return MenuType.AddCustomer;
                 case "5":
                     Console.WriteLine("Customer Was Added");
-                    Console.WriteLine("Please Press Enter To Continue");
+                    Console.WriteLine("Press Enter To Return To MainMenu");
                     _customerBL.AddCustomer(SingletonCustomer.customer);
                     Console.ReadLine();
-                    return MenuType.AddCustomer;
+                    return MenuType.MainMenu;
                 case "6":
                     Console.WriteLine("Returning to Main Menu");
                     return MenuType.MainMenu;

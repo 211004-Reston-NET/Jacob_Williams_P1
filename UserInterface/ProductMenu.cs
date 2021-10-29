@@ -37,7 +37,7 @@ namespace UserInterface
             switch (userChoice)
             {
                 case "1":
-                    return MenuType.ProductMenu;
+                    return MenuType.OrderMenu;
                 case "2":
                     return MenuType.MainMenu;
                 case "3":

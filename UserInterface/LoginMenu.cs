@@ -15,8 +15,8 @@ namespace UserInterface
             Console.WriteLine($"Name-{SingletonCustomer.customer.Name}");
             Console.WriteLine($"Address-{SingletonCustomer.customer.Address}");
             Console.WriteLine("Login");
-            Console.WriteLine("[1] - Edit Name");
-            Console.WriteLine("[2] - Edit Address");
+            Console.WriteLine("[1] - Enter Name");
+            Console.WriteLine("[2] - Enter Address");
             Console.WriteLine("[3] - Login");
             Console.WriteLine("[4] - Return To Main Menu");
             Console.WriteLine("[5] - Exit");
@@ -28,19 +28,20 @@ namespace UserInterface
             switch (userChoice)
             {
                 case "1":
-                    Console.WriteLine("Change Name");
+                    Console.WriteLine("Enter Name");
                     SingletonCustomer.customer.Name = Console.ReadLine();
                     return MenuType.LoginMenu;
                 case "2":
-                    Console.WriteLine("Change Address");
+                    Console.WriteLine("Enter Address");
                     SingletonCustomer.customer.Address = Console.ReadLine();
                     return MenuType.LoginMenu;
                 case "3":
                     SingletonCustomer.customer = _customerBL.GetCustomer(SingletonCustomer.customer.Name, SingletonCustomer.customer.Address);
                     Console.WriteLine(SingletonCustomer.customer.CustomerId);
-                    Console.WriteLine("Please Press Enter To Continue");
+                    Console.WriteLine(SingletonCustomer.customer.Name);
+                    Console.WriteLine("Please Press Enter To Continue To StoreFrontMenu");
                     Console.ReadLine();
-                    return MenuType.LoginMenu; //make this menu the customer page ? 
+                    return MenuType.StoreFrontMenu; 
                 case "4":
                     Console.WriteLine("Returning to Main Menu");
                     return MenuType.MainMenu;
@@ -50,8 +51,7 @@ namespace UserInterface
                     Console.WriteLine("Please Select From The Options Provided");
                     Console.WriteLine("Please Press Enter To Continue");
                     Console.ReadLine();
-                    return MenuType.LoginMenu;
-                
+                    return MenuType.LoginMenu;                
             }
         }
     }

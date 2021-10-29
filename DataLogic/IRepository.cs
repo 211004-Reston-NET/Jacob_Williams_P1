@@ -34,6 +34,10 @@ namespace DataLogic
         List<Product> GetAllProduct();
         Product GetProductByProductId(int p_productId);
 
+        List<Models.Order> GetOrders();
+        Order GetOrderByProductAndStoreFrontId(int p_productId, int p_storeId);
+        Order PlaceOrder(int p_productId, int p_storeId);
+
 
 
     }
