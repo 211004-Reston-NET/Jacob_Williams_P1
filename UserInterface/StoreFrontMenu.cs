@@ -36,9 +36,11 @@ namespace UserInterface
             {
                 case "1":
                     SingletonCustomer.order.StoreFrontId = 1;
+                    SingletonCustomer.order.Address = "156 McBurnie Rd";
                     return MenuType.MaineLocationMenu;
                 case "2":
                     SingletonCustomer.order.StoreFrontId = 2;
+                    SingletonCustomer.order.Address = "351 Monte Vista Ave";
                     return MenuType.CaliforniaLocationMenu;
                 case "3":
                     return MenuType.MainMenu;

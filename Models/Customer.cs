@@ -65,7 +65,10 @@ namespace Models
                 _customerId = value;
             }
         }
-        public List<Order> Orders { get; set; }
+        
+        private List<Order> _orders = new List<Order>();
+        public List<Order> Orders { get {return _orders;} set {_orders = value;} }
+
 
     }
 }

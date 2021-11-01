@@ -81,6 +81,7 @@ namespace UserInterface
                             {
                                 prod.LineItemQuantity -= _inputQuantity;
                                 SingletonCustomer.order.TotalPrice += (_inputQuantity * prod.Product.ProductPrice);
+                                SingletonCustomer.order.LineItems.Add(prod);
                                 Console.WriteLine("");
                                 Console.WriteLine($"{_inputQuantity} {_inputName} have been added to your order");
                                 Console.WriteLine("=========================");
@@ -95,6 +96,7 @@ namespace UserInterface
                     Console.WriteLine("[1] - Checkout");
                     Console.WriteLine("[2] - Keep Shopping");
                     Console.WriteLine("==============================");
+
                     // SingletonCustomer.order.OrdersId = Convert.ToInt32(Console.ReadLine());
                     // SingletonCustomer.order.CustomerId = Convert.ToInt32(Console.ReadLine());
                     // SingletonCustomer.order.StoreFrontId = Convert.ToInt32(Console.ReadLine());
@@ -104,6 +106,8 @@ namespace UserInterface
                     switch (userChoice)
                     {
                         case "1":
+                            SingletonCustomer.order.CustomerId = SingletonCustomer.customer.CustomerId;
+                            _orderBL.PlaceOrder(SingletonCustomer.customer, SingletonCustomer.order);
                             return MenuType.CheckOutMenu; //change this to checkout menu
                         case "2":
                             return MenuType.OrderMenu;

@@ -114,19 +114,26 @@ namespace DataLogic
             ).ToList();
         }
 
-        public Model.Order PlaceOrder(Models.Order p_customer, Models.Order p_order)
+        public Models.Order PlaceOrder(Models.Customer p_customer, Models.Order p_order)
         {
             var customer = _context.Customers
-                .First<Entity.Customer>(cust => cust.CustomerId == p_customer.CustomerId);
+                .FirstOrDefault<Entity.Customer>(cust => cust.CustomerId == p_customer.CustomerId);
                 customer.Orders.Add(new Entity.Order()
                 {
                     OrdersId = p_order.OrdersId,
                     TotalPrice = p_order.TotalPrice,
                     StoreFrontId = p_order.StoreFrontId,
                     CustomerId = p_order.CustomerId,
+                    Address = p_order.Address
                 });
                 _context.SaveChanges();
                 return p_order;
+        }
+
+        public Models.Order LineItemIventory(Models.LineItems p_lineItemQuantity, Models.LineItems p_lineItemId)
+        {
+            
+            return null;
         }
 
         public List<Models.LineItems> GetLineItems(int p_storeId)

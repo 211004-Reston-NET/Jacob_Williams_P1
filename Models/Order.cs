@@ -10,6 +10,13 @@ namespace Models
         public int _storeFrontId;
         public string _address;
         public decimal _totalPrice;
+        private List<LineItems> _lineItems = new List<LineItems>();
+        public List<LineItems> LineItems
+        {
+            get { return _lineItems; }
+            set { _lineItems = value; }
+        }
+        
         public int OrdersId
         {
             get

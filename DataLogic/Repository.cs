@@ -85,5 +85,10 @@ namespace DataLogic
         {
             throw new NotImplementedException();
         }
+
+        public Order PlaceOrder(Customer p_customer, Order p_order)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
