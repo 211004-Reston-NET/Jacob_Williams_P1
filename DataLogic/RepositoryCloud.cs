@@ -114,12 +114,47 @@ namespace DataLogic
             ).ToList();
         }
 
-        public Model.Order PlaceOrder(Models.Order p_productId, Models.Order p_storeFrontId)
+        public Model.Order PlaceOrder(Models.Order p_customer, Models.Order p_order)
         {
-            return null;
+            var customer = _context.Customers
+                .First<Entity.Customer>(cust => cust.CustomerId == p_customer.CustomerId);
+                customer.Orders.Add(new Entity.Order()
+                {
+                    OrdersId = p_order.OrdersId,
+                    TotalPrice = p_order.TotalPrice,
+                    StoreFrontId = p_order.StoreFrontId,
+                    CustomerId = p_order.CustomerId,
+                });
+                _context.SaveChanges();
+                return p_order;
+        }
+
+        public List<Models.LineItems> GetLineItems(int p_storeId)
+        {
+            return _context.LineItems
+            .Where(item => item.StoreFront.StoreFrontId == p_storeId)
+            .Select(Item => 
+                new Models.LineItems()
+                {
+                    Product = new Models.Product(){ //??? Do I add it manually into lineitems? or have to go through DB? If things get weird here delete it out of LineItems in Models
+                        ProductName = Item.Product.ProductName,
+                        ProductPrice = (int)Item.Product.ProductPrice,
+                        ProductDescription = Item.Product.ProductDescription,
+                        ProductId = Item.Product.ProductId,
+                    },
+                    LineItemQuantity = Item.LineItemQuantity,
+                    LineItemId = Item.LineItemId,
+                    StoreFrontId = Item.StoreFrontId
+                }
+            ).ToList();   
         }
 
         public Order PlaceOrder(int p_productId, int p_storeId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Order PlaceOrder()
         {
             throw new System.NotImplementedException();
         }

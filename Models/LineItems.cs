@@ -50,6 +50,8 @@ namespace Models
                 _storeFrontId = value;
             }
         }
+
+        public Product Product { get; set; }
     }
     
 }

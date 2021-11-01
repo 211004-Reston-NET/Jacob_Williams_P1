@@ -1,11 +1,17 @@
 using System;
 using System.Collections.Generic;
 using Models;
+using DataLogic;
 
 namespace BusinessLogic
 {
     public class OrderBL : IOrderBL
     {
+        private IRepository _repo;
+        public OrderBL(IRepository p_repo)
+        {
+            _repo = p_repo;
+        }
         public Order GetOrderByProductAndStoreFrontId(int p_productId, int p_storeId)
         {
             throw new NotImplementedException();
@@ -16,7 +22,7 @@ namespace BusinessLogic
             throw new NotImplementedException();
         }
 
-        public Order PlaceOrder(int p_productId, int p_storeId)
+        public Order PlaceOrder()
         {
             throw new NotImplementedException();
         }

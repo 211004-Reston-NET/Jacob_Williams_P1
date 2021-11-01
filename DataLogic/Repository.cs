@@ -56,6 +56,11 @@ namespace DataLogic
             throw new NotImplementedException();
         }
 
+        public List<LineItems> GetLineItems(int p_storeId)
+        {
+            throw new NotImplementedException();
+        }
+
         public Order GetOrderByProductAndStoreFrontId(int p_productId, int p_storeId)
         {
             throw new NotImplementedException();
@@ -76,7 +81,7 @@ namespace DataLogic
             throw new NotImplementedException();
         }
 
-        public Order PlaceOrder(int p_productId, int p_storeId)
+        public Order PlaceOrder()
         {
             throw new NotImplementedException();
         }

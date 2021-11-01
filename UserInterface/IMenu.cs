@@ -12,6 +12,7 @@ namespace UserInterface
         CaliforniaLocationMenu,
         ProductMenu,
         OrderMenu,
+        CheckOutMenu,
         Exit,
     }
 
