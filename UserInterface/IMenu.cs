@@ -13,6 +13,7 @@ namespace UserInterface
         ProductMenu,
         OrderMenu,
         CheckOutMenu,
+        OrderHistoryMenu,
         Exit,
     }
 

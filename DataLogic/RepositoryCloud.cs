@@ -166,20 +166,43 @@ namespace DataLogic
             throw new System.NotImplementedException();
         }
 
-        // public Model.Customer AddCustomer(Model.Customer p_cust)
+        public List<Order> OrderHistoryBL()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<Model.Order> OrderHistory()
+        {
+            return _context.Orders.Select(prod => 
+                new Model.Order()
+                {
+                    OrdersId = prod.OrdersId,
+                    CustomerId = prod.CustomerId,
+                    StoreFrontId = prod.StoreFrontId,
+                    TotalPrice = prod.TotalPrice,
+                    Address = prod.Address,
+                }
+            
+            ).ToList();
+        }
+
+        public StoreFront RepInventory(Product p_productId, StoreFront p_storeId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        // public Models.StoreFront RepInventory(Models.LineItems p_lineItem, Models.StoreFront p_storeId)
         // {
-        //     _context.Customers.Add
-        //     (
-        //         new Entity.Customer()
+        //     var replen = _context.LineItems
+        //         .FirstOrDefault<Entity.LineItem>(replen => replen.LineItemId == p_lineItem.LineItemId);
+        //         replen.LineItemId.Add(new Entity.LineItem()
         //         {
-        //             CustomerName = p_cust.Name,
-        //             CustomerAddress = p_cust.Address,
-        //             CustomerEmail = p_cust.Email,
-        //             CustomerPhonenumber = p_cust.PhoneNumber,                   
-        //         }
-        //     );
-        //     _context.SaveChanges();
-        //     return p_cust;
-        // }
+        //             LineItemId = p_lineItem.LineItemId,
+        //             LineItemQuantity = p_lineItem.LineItemQuantity,
+        //             ProductId = p_lineItem.ProductId,
+        //             StoreFrontId = p_lineItem.StoreFrontId
+        //         });
+        //         _context.SaveChanges();
+        //         return p_lineItem;
     }
 }

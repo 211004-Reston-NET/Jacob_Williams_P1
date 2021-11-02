@@ -81,12 +81,27 @@ namespace DataLogic
             throw new NotImplementedException();
         }
 
+        public List<Order> OrderHistory()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Order> OrderHistoryBL()
+        {
+            throw new NotImplementedException();
+        }
+
         public Order PlaceOrder()
         {
             throw new NotImplementedException();
         }
 
         public Order PlaceOrder(Customer p_customer, Order p_order)
+        {
+            throw new NotImplementedException();
+        }
+
+        public StoreFront RepInventory(Product p_productId, StoreFront p_storeId)
         {
             throw new NotImplementedException();
         }

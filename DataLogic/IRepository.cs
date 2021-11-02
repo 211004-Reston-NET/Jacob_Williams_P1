@@ -39,6 +39,8 @@ namespace DataLogic
         Order PlaceOrder(Models.Customer p_customer, Models.Order p_order);
 
         List<Models.LineItems> GetLineItems(int p_storeId);
+        List<Models.Order> OrderHistory();
+        StoreFront RepInventory(Product p_productId, StoreFront p_storeId);
 
 
 

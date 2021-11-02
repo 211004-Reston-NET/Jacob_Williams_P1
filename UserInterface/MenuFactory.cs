@@ -24,6 +24,8 @@ namespace UserInterface
             {
                 // case MenuType.Locations:
                 //     return new Locations();
+                case MenuType.OrderHistoryMenu:
+                    return new OrderHistoryMenu(new OrderHistoryBL(new RepositoryCloud(new Project_0_DatabaseContext(options))));
                 case MenuType.CheckOutMenu:
                     return new CheckOutMenu();
                 case MenuType.OrderMenu:
