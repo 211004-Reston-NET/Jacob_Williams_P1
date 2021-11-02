@@ -24,6 +24,10 @@ namespace UserInterface
             {
                 // case MenuType.Locations:
                 //     return new Locations();
+                // case MenuType.RepInventoryMenu:
+                //     return new RepInventoryMenu(new LineItemsBL(new RepositoryCloud(new Project_0_DatabaseContext(options))));
+                case MenuType.ChangeInventoryMenu:
+                    return new ChangeInventoryMenu(new LineItemsBL(new RepositoryCloud(new Project_0_DatabaseContext(options))), new ChangeInvBL(new RepositoryCloud(new Project_0_DatabaseContext(options))));
                 case MenuType.OrderHistoryMenu:
                     return new OrderHistoryMenu(new OrderHistoryBL(new RepositoryCloud(new Project_0_DatabaseContext(options))));
                 case MenuType.CheckOutMenu:

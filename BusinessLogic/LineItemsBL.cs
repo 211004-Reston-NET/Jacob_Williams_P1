@@ -22,5 +22,19 @@ namespace BusinessLogic
             List<LineItems> listOfLineItems = _repo.GetLineItems(StoreFrontId);
             return listOfLineItems;
         }
+
+        public static implicit operator LineItemsBL(int v)
+        {
+            throw new NotImplementedException();
+        }
+        public StoreFront RepInventory(int p_lineItemId, int p_lineItemQuantity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public LineItems GetLineItemById(int p_id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

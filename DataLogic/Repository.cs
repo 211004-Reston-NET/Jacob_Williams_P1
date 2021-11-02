@@ -56,6 +56,11 @@ namespace DataLogic
             throw new NotImplementedException();
         }
 
+        public LineItems GetLineItemById(int p_id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<LineItems> GetLineItems(int p_storeId)
         {
             throw new NotImplementedException();
@@ -101,7 +106,12 @@ namespace DataLogic
             throw new NotImplementedException();
         }
 
-        public StoreFront RepInventory(Product p_productId, StoreFront p_storeId)
+        public StoreFront RepInventory(int p_lineItemId, int p_lineItemQuantity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public LineItems UpdateInventory(LineItems p_upd)
         {
             throw new NotImplementedException();
         }

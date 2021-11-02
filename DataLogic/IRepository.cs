@@ -40,7 +40,11 @@ namespace DataLogic
 
         List<Models.LineItems> GetLineItems(int p_storeId);
         List<Models.Order> OrderHistory();
-        StoreFront RepInventory(Product p_productId, StoreFront p_storeId);
+        StoreFront RepInventory(int p_lineItemId, int p_lineItemQuantity);
+
+        LineItems GetLineItemById(int p_id);
+
+        LineItems UpdateInventory(LineItems p_upd);
 
 
 

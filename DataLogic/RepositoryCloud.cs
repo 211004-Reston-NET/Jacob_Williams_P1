@@ -4,6 +4,7 @@ using DataLogic;
 using Models;
 using Entity = DataLogic.Entities;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataLogic
 {
@@ -186,23 +187,44 @@ namespace DataLogic
             ).ToList();
         }
 
-        public StoreFront RepInventory(Product p_productId, StoreFront p_storeId)
+        public void RepInventory(int p_lineItemId, int p_lineItemQuantity)
+        {
+            var repInv = _context.LineItems
+                .FirstOrDefault<Entity.LineItem>(dbItem => dbItem.LineItemId == p_lineItemId);
+                repInv.LineItemQuantity = p_lineItemQuantity;
+                _context.SaveChanges();
+        }
+
+        StoreFront IRepository.RepInventory(int p_lineItemId, int p_lineItemQuantity)
         {
             throw new System.NotImplementedException();
         }
 
-        // public Models.StoreFront RepInventory(Models.LineItems p_lineItem, Models.StoreFront p_storeId)
-        // {
-        //     var replen = _context.LineItems
-        //         .FirstOrDefault<Entity.LineItem>(replen => replen.LineItemId == p_lineItem.LineItemId);
-        //         replen.LineItemId.Add(new Entity.LineItem()
-        //         {
-        //             LineItemId = p_lineItem.LineItemId,
-        //             LineItemQuantity = p_lineItem.LineItemQuantity,
-        //             ProductId = p_lineItem.ProductId,
-        //             StoreFrontId = p_lineItem.StoreFrontId
-        //         });
-        //         _context.SaveChanges();
-        //         return p_lineItem;
+        public LineItems GetLineItemById(int p_id)
+        {
+            Entity.LineItem lineItemIdFound = _context.LineItems.AsNoTracking().FirstOrDefault(rev => rev.LineItemId == p_id);
+            return new Model.LineItems()
+            {
+                LineItemId = lineItemIdFound.LineItemId,
+                LineItemQuantity = lineItemIdFound.LineItemQuantity,
+                StoreFrontId = lineItemIdFound.StoreFrontId,
+                ProductId = lineItemIdFound.ProductId
+            };
+        }
+
+        public Models.LineItems UpdateInventory(Models.LineItems p_upd)
+        {
+            Entity.LineItem invUpdated = new Entity.LineItem()
+            {
+                LineItemId = p_upd.LineItemId,
+                LineItemQuantity = p_upd.LineItemQuantity,
+                StoreFrontId = p_upd.StoreFrontId,
+                ProductId = p_upd.ProductId
+            };
+            _context.LineItems.Update(invUpdated);
+            _context.SaveChanges();
+
+            return p_upd;
+        }
     }
 }

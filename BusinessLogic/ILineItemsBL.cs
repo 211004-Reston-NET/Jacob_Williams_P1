@@ -9,5 +9,6 @@ namespace BusinessLogic
     {
         List<Models.LineItems> GetAllLineItem(int StoreFrontId);
         Models.LineItems LineItem();
+        public LineItems GetLineItemById(int p_id);
     }
 }

@@ -13,7 +13,8 @@ namespace UserInterface
             Console.WriteLine("[2] - Create New Account");
             Console.WriteLine("[3] - Go To StoreFront Menu");
             Console.WriteLine("[4] - Order History Menu");
-            Console.WriteLine("[5] - Exit");
+            Console.WriteLine("[5] - Replenish Iventory Menu");
+            Console.WriteLine("[6] - Exit");
         }
 
         public MenuType UserChoice()
@@ -33,6 +34,8 @@ namespace UserInterface
                 case "4":
                     return MenuType.OrderHistoryMenu;
                 case "5":
+                    return MenuType.ChangeInventoryMenu;
+                case "6":
                     return MenuType.Exit;
                 default:
                     Console.WriteLine("Please Select From The Options Provided");

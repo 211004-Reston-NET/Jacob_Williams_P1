@@ -14,6 +14,8 @@ namespace UserInterface
         OrderMenu,
         CheckOutMenu,
         OrderHistoryMenu,
+        ChangeInventoryMenu,
+        // RepInventoryMenu,
         Exit,
     }
 
