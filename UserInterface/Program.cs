@@ -26,7 +26,7 @@ namespace UserInterface
             if (currentPage == MenuType.Exit)
             {
                 Console.WriteLine("Thanks For Visiting!");
-                Console.WriteLine("Press Enter To Cotinue");
+                Console.WriteLine("Press Enter To Continue");
                 Console.ReadLine();
                 repeat = false;               
             }

@@ -37,8 +37,14 @@ namespace UserInterface
                     return MenuType.LoginMenu;
                 case "3":
                     SingletonCustomer.customer = _customerBL.GetCustomer(SingletonCustomer.customer.Name, SingletonCustomer.customer.Address);
+                    Console.WriteLine("Customer ID:");
+                    Console.WriteLine("------------");
                     Console.WriteLine(SingletonCustomer.customer.CustomerId);
+                    Console.WriteLine("------------");
+                    Console.WriteLine("Customer Name:");
+                    Console.WriteLine("------------");
                     Console.WriteLine(SingletonCustomer.customer.Name);
+                    Console.WriteLine("------------");
                     Console.WriteLine("Please Press Enter To Continue To StoreFrontMenu");
                     Console.ReadLine();
                     return MenuType.StoreFrontMenu; 

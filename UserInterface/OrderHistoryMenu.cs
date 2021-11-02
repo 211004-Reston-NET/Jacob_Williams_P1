@@ -41,10 +41,13 @@ namespace UserInterface
                 Console.WriteLine("---------------");
                 Console.WriteLine("===============");
             }
-            Console.WriteLine("Welcome To The OrderHistoryMenu");
-            Console.WriteLine("Please Enter A StoreFrontId To View Order History"); //Still need to work on history using customer/storefonrt IDs
-            Console.WriteLine("[1] - McBurnie Rd Location");
-            Console.WriteLine("[2] - Monte Vista Ave Location"); 
+            Console.WriteLine("  Welcome To The OrderHistoryMenu");
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine("Listed Above Are All Previous Orders");
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine("Please Select An Option To Continue");
+            Console.WriteLine("[1] - Return To Main Menu");
+            Console.WriteLine("[2] - Exit"); 
         }
 
         public MenuType UserChoice()
@@ -53,9 +56,9 @@ namespace UserInterface
             switch (userChoice)
             {
                 case "1":
-                    return MenuType.OrderHistoryMenu; //change these when the time comes
+                    return MenuType.MainMenu; 
                 case "2":
-                    return MenuType.OrderHistoryMenu;
+                    return MenuType.Exit;
                 default:
                     Console.WriteLine("Please Input A Valid Reponse");
                     Console.WriteLine("Press Enter To Continue");

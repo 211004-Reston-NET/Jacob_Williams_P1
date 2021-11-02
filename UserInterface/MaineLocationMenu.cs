@@ -6,7 +6,7 @@ namespace UserInterface
     {
         public void Menu()
         {
-            Console.WriteLine("Welcome To Our California Location");
+            Console.WriteLine("Welcome To Our Maine Location");
             Console.WriteLine("How Would You Like To Proceed?");
             Console.WriteLine("[1] - View Our Products");
             Console.WriteLine("[2] - Return To Main Menu");
