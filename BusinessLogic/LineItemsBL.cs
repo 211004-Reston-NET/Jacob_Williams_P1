@@ -34,7 +34,13 @@ namespace BusinessLogic
 
         public LineItems GetLineItemById(int p_id)
         {
-            throw new NotImplementedException();
+            return _repo.GetLineItemById(p_id);
+        }
+        public LineItems UpdateInventory(LineItems p_upd, int p_howMuchAdded)
+        {
+            p_upd.LineItemQuantity += p_howMuchAdded;
+
+            return _repo.UpdateInventory(p_upd);
         }
     }
 }
