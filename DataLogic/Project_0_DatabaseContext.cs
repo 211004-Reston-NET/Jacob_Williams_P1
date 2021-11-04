@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Models;
 
 #nullable disable
 
-namespace DataLogic.Entities
+namespace DataLogic
 {
     public partial class Project_0_DatabaseContext : DbContext
     {
@@ -19,7 +20,7 @@ namespace DataLogic.Entities
 
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<ItemsInOrder> ItemsInOrders { get; set; }
-        public virtual DbSet<LineItem> LineItems { get; set; }
+        public virtual DbSet<LineItems> LineItems { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<StoreFront> StoreFronts { get; set; }
@@ -34,22 +35,22 @@ namespace DataLogic.Entities
 
                 entity.Property(e => e.CustomerId).HasColumnName("Customer_Id");
 
-                entity.Property(e => e.CustomerAddress)
+                entity.Property(e => e.Address)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("Customer_Address");
 
-                entity.Property(e => e.CustomerEmail)
+                entity.Property(e => e.Email)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("Customer_Email");
 
-                entity.Property(e => e.CustomerName)
+                entity.Property(e => e.Name)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("Customer_Name");
 
-                entity.Property(e => e.CustomerPhonenumber).HasColumnName("Customer_Phonenumber");
+                entity.Property(e => e.PhoneNumber).HasColumnName("Customer_Phonenumber");
             });
 
             modelBuilder.Entity<ItemsInOrder>(entity =>
@@ -60,7 +61,7 @@ namespace DataLogic.Entities
 
                 entity.Property(e => e.LineItemId).HasColumnName("LineItem_Id");
 
-                entity.Property(e => e.OrdersId).HasColumnName("Orders_Id");
+                entity.Property(e => e.OrdersId).HasColumnName("Orders_Id");       
 
                 entity.HasOne(d => d.LineItem)
                     .WithMany(p => p.ItemsInOrders)
@@ -73,7 +74,7 @@ namespace DataLogic.Entities
                     .HasConstraintName("FK__ItemsInOr__Order__2A164134");
             });
 
-            modelBuilder.Entity<LineItem>(entity =>
+            modelBuilder.Entity<LineItems>(entity =>
             {
                 entity.ToTable("LineItem");
 

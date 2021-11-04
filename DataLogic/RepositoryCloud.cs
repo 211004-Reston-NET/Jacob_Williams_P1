@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Model = Models;
 using DataLogic;
 using Models;
-using Entity = DataLogic.Entities;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,48 +11,48 @@ namespace DataLogic
 
     public class RepositoryCloud : IRepository
     {
-        private Entity.Project_0_DatabaseContext _context;
-        public RepositoryCloud(Entity.Project_0_DatabaseContext p_context)
+        private Project_0_DatabaseContext _context;
+        public RepositoryCloud(Project_0_DatabaseContext p_context)
         {
             _context = p_context;
         }
-        public Model.Customer AddCustomer(Model.Customer p_cust)
+        public Customer AddCustomer(Customer p_cust)
         {
             _context.Customers.Add
             (
-                new Entity.Customer()
+                new Customer()
                 {
-                    CustomerName = p_cust.Name,
-                    CustomerAddress = p_cust.Address,
-                    CustomerEmail = p_cust.Email,
-                    CustomerPhonenumber = p_cust.PhoneNumber,                   
+                    Name = p_cust.Name,
+                    Address = p_cust.Address,
+                    Email = p_cust.Email,
+                    PhoneNumber = p_cust.PhoneNumber,                   
                 }
             );
             _context.SaveChanges();
             return p_cust;
         }
 
-        public List<Model.Customer> GetAllCustomer()
+        public List<Customer> GetAllCustomer()
         {
             return _context.Customers.Select(cust => 
-                new Model.Customer()
+                new Customer()
                 {
-                    Name = cust.CustomerName,
-                    Address = cust.CustomerAddress,
-                    Email = cust.CustomerEmail,
-                    PhoneNumber = cust.CustomerPhonenumber,
+                    Name = cust.Name,
+                    Address = cust.Address,
+                    Email = cust.Email,
+                    PhoneNumber = cust.PhoneNumber,
                     CustomerId = cust.CustomerId,
                 }
             
             ).ToList();
         }
 
-        public List<Model.LineItems> GetAllLineItems(int p_storeId)
+        public List<LineItems> GetAllLineItems(int p_storeId)
         {
             return _context.LineItems
             .Where(item => item.StoreFront.StoreFrontId == p_storeId)
             .Select(item =>
-                new Models.LineItems()
+                new LineItems()
                 {
                     ProductId = item.ProductId,
                     LineItemQuantity = item.LineItemQuantity,
@@ -69,7 +68,7 @@ namespace DataLogic
             //???
         }
 
-        public List<Model.Product> GetAllProduct()
+        public List<Product> GetAllProduct()
         {
             return _context.Products.Select(prod => new Models.Product()
             {
@@ -94,7 +93,7 @@ namespace DataLogic
         public Product GetProductByProductId(int p_productId)
         {
             var result = _context.Products
-                .FirstOrDefault<Entity.Product>(prod => prod.ProductId == p_productId);
+                .FirstOrDefault<Product>(prod => prod.ProductId == p_productId);
             return new Models.Product()
             {
                 ProductName = result.ProductName,
@@ -118,8 +117,8 @@ namespace DataLogic
         public Models.Order PlaceOrder(Models.Customer p_customer, Models.Order p_order)
         {
             var customer = _context.Customers
-                .FirstOrDefault<Entity.Customer>(cust => cust.CustomerId == p_customer.CustomerId);
-                customer.Orders.Add(new Entity.Order()
+                .FirstOrDefault<Customer>(cust => cust.CustomerId == p_customer.CustomerId);
+                customer.Orders.Add(new Order()
                 {
                     OrdersId = p_order.OrdersId,
                     TotalPrice = p_order.TotalPrice,
@@ -131,20 +130,20 @@ namespace DataLogic
                 return p_order;
         }
 
-        public Models.Order LineItemIventory(Models.LineItems p_lineItemQuantity, Models.LineItems p_lineItemId)
+        public Order LineItemIventory(LineItems p_lineItemQuantity, LineItems p_lineItemId)
         {
             
             return null;
         }
 
-        public List<Models.LineItems> GetLineItems(int p_storeId)
+        public List<LineItems> GetLineItems(int p_storeId)
         {
             return _context.LineItems
             .Where(item => item.StoreFront.StoreFrontId == p_storeId)
             .Select(Item => 
-                new Models.LineItems()
+                new LineItems()
                 {
-                    Product = new Models.Product(){ //??? Do I add it manually into lineitems? or have to go through DB? If things get weird here delete it out of LineItems in Models
+                    Product = new Product(){ //??? Do I add it manually into lineitems? or have to go through DB? If things get weird here delete it out of LineItems in Models
                         ProductName = Item.Product.ProductName,
                         ProductPrice = (int)Item.Product.ProductPrice,
                         ProductDescription = Item.Product.ProductDescription,
@@ -172,10 +171,10 @@ namespace DataLogic
             throw new System.NotImplementedException();
         }
 
-        public List<Model.Order> OrderHistory()
+        public List<Order> OrderHistory()
         {
             return _context.Orders.Select(prod => 
-                new Model.Order()
+                new Order()
                 {
                     OrdersId = prod.OrdersId,
                     CustomerId = prod.CustomerId,
@@ -190,7 +189,7 @@ namespace DataLogic
         public void RepInventory(int p_lineItemId, int p_lineItemQuantity)
         {
             var repInv = _context.LineItems
-                .FirstOrDefault<Entity.LineItem>(dbItem => dbItem.LineItemId == p_lineItemId);
+                .FirstOrDefault<LineItems>(dbItem => dbItem.LineItemId == p_lineItemId);
                 repInv.LineItemQuantity = p_lineItemQuantity;
                 _context.SaveChanges();
         }
@@ -202,7 +201,7 @@ namespace DataLogic
 
         public LineItems GetLineItemById(int p_id)
         {
-            Entity.LineItem lineItemIdFound = _context.LineItems.AsNoTracking().FirstOrDefault(rev => rev.LineItemId == p_id);
+            LineItems lineItemIdFound = _context.LineItems.AsNoTracking().FirstOrDefault(rev => rev.LineItemId == p_id);
             return new Model.LineItems()
             {
                 LineItemId = lineItemIdFound.LineItemId,
@@ -214,7 +213,7 @@ namespace DataLogic
 
         public Models.LineItems UpdateInventory(Models.LineItems p_upd)
         {
-            Entity.LineItem invUpdated = new Entity.LineItem()
+            LineItems invUpdated = new LineItems()
             {
                 LineItemId = p_upd.LineItemId,
                 LineItemQuantity = p_upd.LineItemQuantity,

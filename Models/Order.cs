@@ -72,6 +72,9 @@ namespace Models
                 _totalPrice = value;
             }
         }
+        public virtual Customer Customer { get; set; }
+        public virtual StoreFront StoreFront { get; set; }
+        public virtual List<ItemsInOrder> ItemsInOrders { get; set; }
     }
     
 }

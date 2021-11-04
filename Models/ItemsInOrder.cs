@@ -42,5 +42,7 @@ namespace Models
                 _ordersId = value;
             }
         }
+        public virtual LineItems LineItem { get; set; }
+        public virtual Order Orders { get; set; }
     }
 }

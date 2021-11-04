@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
 namespace Models
 {
     public class LineItems
@@ -6,6 +9,10 @@ namespace Models
         public int _lineItemQuantity;
         public int _productId;
         public int _storeFrontId;
+
+        
+        
+        [Key]
         public int LineItemId
         {
             get
@@ -50,7 +57,8 @@ namespace Models
                 _storeFrontId = value;
             }
         }
-
+        public virtual StoreFront StoreFront { get; set; }
+        public virtual ICollection<ItemsInOrder> ItemsInOrders { get; set; }
         public Product Product { get; set; }
     }
     

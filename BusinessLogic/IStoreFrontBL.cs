@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using DataLogic.Entities;
 using Models;
 
 namespace BusinessLogic

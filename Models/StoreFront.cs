@@ -46,5 +46,7 @@ namespace Models
         {
             return $"Name: {StoreFrontName} \nAddress: {StoreFrontAddress}";
         }
+        public virtual List<LineItems> LineItems { get; set; }
+        public virtual List<Order> Orders { get; set; }
     }
 }
