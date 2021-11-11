@@ -9,7 +9,7 @@ namespace Models
         public int _productId;
         public string _productName;
         public string _productDescription;
-        public int _productPrice;
+        public double _productPrice;
 
         public int ProductId
         {
@@ -44,7 +44,7 @@ namespace Models
                 _productDescription = value;
             }
         }
-        public int ProductPrice
+        public double ProductPrice
         {
             get
             {

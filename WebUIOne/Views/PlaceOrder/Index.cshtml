@@ -1,0 +1,19 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<WebUIOne.Models.StoreFrontVM>
+
+<h1>Orders Page</h1>
+<h6>Please Select Which StoreFront You Would Like To Purchase From</h6>
+<br />
+@foreach (StoreFrontVM store in Model)
+{
+<div>
+    <div>@Html.DisplayFor(modelItem => store.StoreFrontName)</div>
+    <div>@Html.DisplayFor(modelItem => store.StoreFrontId)</div>
+    <div>@Html.DisplayFor(modelItem => store.StoreFrontAddress)</div>
+    <button>@Html.ActionLink("Select", "Index", "LineItem", new {p_storeFrontId=store.StoreFrontId},new { @style = "color: white" })</button>
+</div>
+}

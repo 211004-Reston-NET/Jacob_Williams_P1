@@ -80,7 +80,7 @@ namespace UserInterface
                             else
                             {
                                 prod.LineItemQuantity -= _inputQuantity;
-                                SingletonCustomer.order.TotalPrice += (_inputQuantity * prod.Product.ProductPrice);
+                                //SingletonCustomer.order.TotalPrice += (_inputQuantity * prod.Product.ProductPrice);
                                 SingletonCustomer.order.LineItems.Add(prod);
                                 Console.WriteLine("");
                                 Console.WriteLine($"{_inputQuantity} {_inputName} have been added to your order");

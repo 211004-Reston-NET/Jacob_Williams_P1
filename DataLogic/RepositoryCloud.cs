@@ -139,21 +139,26 @@ namespace DataLogic
         public List<LineItems> GetLineItems(int p_storeId)
         {
             return _context.LineItems
-            .Where(item => item.StoreFront.StoreFrontId == p_storeId)
-            .Select(Item => 
-                new LineItems()
-                {
-                    Product = new Product(){ //??? Do I add it manually into lineitems? or have to go through DB? If things get weird here delete it out of LineItems in Models
-                        ProductName = Item.Product.ProductName,
-                        ProductPrice = (int)Item.Product.ProductPrice,
-                        ProductDescription = Item.Product.ProductDescription,
-                        ProductId = Item.Product.ProductId,
-                    },
-                    LineItemQuantity = Item.LineItemQuantity,
-                    LineItemId = Item.LineItemId,
-                    StoreFrontId = Item.StoreFrontId
-                }
-            ).ToList();   
+                         .Where(item => item.StoreFront.StoreFrontId == p_storeId)
+                         .Select(item =>
+                            new LineItems()
+                            {
+                                Product = new Product()
+                                {
+                                    ProductName = item.Product.ProductName,
+                                    ProductPrice = item.Product.ProductPrice,
+                                    ProductDescription = item.Product.ProductDescription,
+                                    ProductId = item.Product.ProductId
+                                },
+                                LineItemQuantity = item.LineItemQuantity,
+                                LineItemId = item.LineItemId,
+                                StoreFrontId = item.StoreFrontId,
+                                ProductId = item.ProductId
+                            }
+                        ).ToList();
+
+
+
         }
 
         public Order PlaceOrder(int p_productId, int p_storeId)

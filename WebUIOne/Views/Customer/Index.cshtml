@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<WebUIOne.Models.CustomerVM>
+
+<h1>List Of Customers</h1>
+<br />
+
+<a class="btn btn-primary text-white" asp-controller="Customer" asp-action="Create">Add A Customer</a>
+<br />
+<br />
+
+<table>
+    <tr>
+        <th>Customer ID</th>
+        <th>Customer Name</th>
+        <th>Customer Address</th>
+        <th>Customer Email</th>
+        <th>Customer Phone Number</th>
+    </tr>
+    @foreach(CustomerVM item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.CustomerID)</td>
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.Address)</td>
+            <td>@Html.DisplayFor(modelItem => item.Email)</td>
+            <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+        </tr>
+    }
+</table>
+
+<br />
+<br />
+<a class="btn btn-primary text-white" asp-controller="Customer" asp-action="Details">Login Page</a>

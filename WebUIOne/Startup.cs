@@ -1,3 +1,4 @@
+using BusinessLogic;
 using DataLogic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,6 +28,13 @@ namespace WebUIOne
         {
             services.AddControllersWithViews();
             services.AddDbContext<Project_0_DatabaseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Reference2DB")));
+            services.AddScoped<IStoreFrontBL, StoreFrontBL>();
+            services.AddScoped<ICustomerBL, CustomerBL>();
+            services.AddScoped<IOrderBL, OrderBL>();
+            services.AddScoped<ILineItemsBL, LineItemsBL>();
+            services.AddScoped<IRepository, RepositoryCloud>();
+
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
