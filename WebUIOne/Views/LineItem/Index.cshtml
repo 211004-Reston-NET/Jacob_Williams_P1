@@ -16,16 +16,18 @@
         <th>LineItem ID</th>
         <th>LineItem Quantity</th>
         <th>StoreFront ID</th>
+        <th>Add To Cart</th>
     </tr>
     @foreach (LineItemVM item in Model)
     {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
-            <td>@Html.DisplayFor(modelItem => item.ProductId)</td>
-            <td>@Html.DisplayFor(modelItem => item.LineItemId)</td>
-            <td>@Html.DisplayFor(modelItem => item.LineItemQuantity)</td>
-            <td>@Html.DisplayFor(modelItem => item.StoreFrontId)</td>
-        </tr>
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
+        <td>@Html.DisplayFor(modelItem => item.ProductId)</td>
+        <td>@Html.DisplayFor(modelItem => item.LineItemId)</td>
+        <td>@Html.DisplayFor(modelItem => item.LineItemQuantity)</td>
+        <td>@Html.DisplayFor(modelItem => item.StoreFrontId)</td>
+        <td><button>>@Html.ActionLink("Add To Cart", "Create", "PlaceOrder", new { p_lineItemId = item.LineItemId }, new { @style = "color: white" })</button></td>
+    </tr>
     }
 </table>
 

@@ -1,4 +1,5 @@
 ﻿using BusinessLogic;
+using DataLogic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models;
@@ -14,8 +15,10 @@ namespace WebUIOne.Controllers
     {
         private IStoreFrontBL _storeFrontBL;
         private IOrderBL _orderBL;
-        public PlaceOrderController(IOrderBL p_orderBL, IStoreFrontBL p_storeFrontBL)
+        private Project_0_DatabaseContext _context;
+        public PlaceOrderController(IOrderBL p_orderBL, IStoreFrontBL p_storeFrontBL, Project_0_DatabaseContext p_context)
         {
+            _context = p_context;
             _storeFrontBL = p_storeFrontBL;
             _orderBL = p_orderBL;
         }
@@ -61,13 +64,21 @@ namespace WebUIOne.Controllers
         // POST: PlaceOrderController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(PlaceOrderVM p_orderVM)
+        public ActionResult Create(PlaceOrderVM placeOrderVM)
         {
-            //if (ModelState.IsValid)
-            //{
-                //_orderBL.PlaceOrder(p_orderVM.CustomerId, p_orderVM.Address);
-                //return RedirectToAction(nameof(Index));
-            //}
+            if (ModelState.IsValid)
+            {
+                _orderBL.PlaceOrder(new Customer(), new Order()
+                {
+                    OrdersId = placeOrderVM.OrdersId,
+                    TotalPrice = placeOrderVM.TotalPrice,
+                    StoreFrontId = placeOrderVM.StoreFrontId,
+                    CustomerId = placeOrderVM.CustomerId,
+                    Address = placeOrderVM.Address
+
+                });
+                return RedirectToAction(nameof(Index));
+            }
             return View();
         }
 

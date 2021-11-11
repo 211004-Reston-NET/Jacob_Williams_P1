@@ -12,7 +12,7 @@ namespace WebUIOne.Models
         {
 
         }
-        public CustomerVM(Customer p_cust)
+        public CustomerVM (Customer p_cust)
         {
             this.CustomerID = p_cust.CustomerId;
             this.Name = p_cust.Name;

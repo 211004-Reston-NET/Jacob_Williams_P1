@@ -11,6 +11,8 @@
 <a class="btn btn-primary text-white" asp-controller="Customer" asp-action="Create">Add A Customer</a>
 <br />
 <br />
+<h1>@ViewData["CustomerName"]</h1>
+<h1>@ViewData["CustomerAddress"]</h1>
 
 <table>
     <tr>
@@ -20,7 +22,7 @@
         <th>Customer Email</th>
         <th>Customer Phone Number</th>
     </tr>
-    @foreach(CustomerVM item in Model)
+    @foreach (CustomerVM item in Model)
     {
         <tr>
             <td>@Html.DisplayFor(modelItem => item.CustomerID)</td>

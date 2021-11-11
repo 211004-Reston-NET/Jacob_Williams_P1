@@ -12,6 +12,7 @@ namespace WebUIOne.Controllers
 {
     public class CustomerController : Controller
     {
+
         private ICustomerBL _customerBL;
         public CustomerController(ICustomerBL p_customerBL)
         {
@@ -21,6 +22,9 @@ namespace WebUIOne.Controllers
         // GET: CustomerController
         public ActionResult Index()
         {
+
+            ViewData.Add("CustomerName", SingletonVM.customer.Name);
+            ViewData.Add("CustomerAddress", SingletonVM.customer.Address);
             return View(_customerBL.GetAllCustomer()
                         .Select(customer => new CustomerVM(customer))
                         .ToList()
@@ -38,9 +42,11 @@ namespace WebUIOne.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Details(CustomerVM p_customerVM)
         {
+            ViewBag.CustomerName = SingletonVM.customer.Name;
+            ViewBag.CustomerAddress = SingletonVM.customer.Address;
             if (ModelState.IsValid)
             {
-                _customerBL.GetCustomer(p_customerVM.Name, p_customerVM.Address);
+                SingletonVM.customer = _customerBL.GetCustomer(p_customerVM.Name, p_customerVM.Address);
                 return RedirectToAction(nameof(Index));
             }
             return View();
@@ -57,6 +63,8 @@ namespace WebUIOne.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CustomerVM customerVM)
         {
+            ViewData.Add("CustomerName", SingletonVM.customer.Name);
+            ViewData.Add("CustomerAddress",  SingletonVM.customer.Address);
             if (ModelState.IsValid)
             {
                 _customerBL.AddCustomer(new Customer()
@@ -72,8 +80,10 @@ namespace WebUIOne.Controllers
         }
 
         // GET: CustomerController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit()
         {
+            ViewBag.testName = SingletonVM.customer.Name;
+            ViewBag.Address = SingletonVM.customer.Address;
             return View();
         }
 
