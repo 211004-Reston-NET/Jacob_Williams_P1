@@ -13,6 +13,14 @@ namespace BusinessLogic
         {
             _repo = p_repo;
         }
+
+        public StoreFront GetStoreFrontById(int p_id)
+        {
+            return _repo.GetStoreFrontById(p_id);
+        }
+
+
+
         public List<StoreFront> GetStoreFrontList()
         {
             return _repo.GetStoreFrontList();   

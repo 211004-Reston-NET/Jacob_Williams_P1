@@ -31,6 +31,8 @@ namespace WebUIOne
             services.AddScoped<IStoreFrontBL, StoreFrontBL>();
             services.AddScoped<ICustomerBL, CustomerBL>();
             services.AddScoped<IOrderBL, OrderBL>();
+            services.AddScoped<IChangeInvBL, ChangeInvBL>();
+            services.AddScoped<IOrderHistoryBL, OrderHistoryBL>();
             services.AddScoped<ILineItemsBL, LineItemsBL>();
             services.AddScoped<IRepository, RepositoryCloud>();
 

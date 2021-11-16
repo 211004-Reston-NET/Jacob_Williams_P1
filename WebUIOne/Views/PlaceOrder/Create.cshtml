@@ -3,5 +3,29 @@
 *@
 @{
 }
+@model IEnumerable<WebUIOne.Models.PlaceOrderVM>
 
-<h1 class="display-4">If You Could Work... that'd be great</h1>
+<h1>You Owe Us:</h1>
+
+<br />
+<br />
+
+<table>
+    <tr>
+        <th>TotalPrice</th>
+        <th>CustomerId</th>
+        <th>StoreFrontId</th>
+        <th>Address</th>
+    </tr>
+    @foreach (PlaceOrderVM item in Model)
+    {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.TotalPrice)</td>
+        <td>@Html.DisplayFor(modelItem => item.CustomerId)</td>
+        <td>@Html.DisplayFor(modelItem => item.StoreFrontId)</td>
+        <td>@Html.DisplayFor(modelItem => item.Address)</td>
+    </tr>
+    }
+</table>
+
+<a class="btn btn-primary text-white" asp-controller="PlaceOrder" asp-action="Cart">Pay Full Amount</a>

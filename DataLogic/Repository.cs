@@ -6,7 +6,7 @@ using Models;
 
 namespace DataLogic
 {
-    public class Repository : IRepository
+    public class Repository
     {
         private const string _filepath ="./../DataLogic/Database/";
         private string _jsonString;
@@ -56,6 +56,11 @@ namespace DataLogic
             throw new NotImplementedException();
         }
 
+        public Customer GetCustomerById(int p_id)
+        {
+            throw new NotImplementedException();
+        }
+
         public LineItems GetLineItemById(int p_id)
         {
             throw new NotImplementedException();
@@ -101,10 +106,6 @@ namespace DataLogic
             throw new NotImplementedException();
         }
 
-        public Order PlaceOrder(Customer p_customer, Order p_order)
-        {
-            throw new NotImplementedException();
-        }
 
         public StoreFront RepInventory(int p_lineItemId, int p_lineItemQuantity)
         {
@@ -112,6 +113,11 @@ namespace DataLogic
         }
 
         public LineItems UpdateInventory(LineItems p_upd)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PlaceOrder(Customer p_customer, Order p_order)
         {
             throw new NotImplementedException();
         }

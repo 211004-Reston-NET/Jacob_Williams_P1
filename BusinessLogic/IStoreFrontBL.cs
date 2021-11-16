@@ -11,5 +11,6 @@ namespace BusinessLogic
         /// </summary>
         /// <returns></returns>
         List<Models.StoreFront> GetStoreFrontList();
+        StoreFront GetStoreFrontById(int p_id);
     }
 }

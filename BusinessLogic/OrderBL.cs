@@ -22,9 +22,9 @@ namespace BusinessLogic
             throw new NotImplementedException();
         }
 
-        public Order PlaceOrder(Customer p_customer, Order p_order)
+        public void PlaceOrder(Customer p_customer, Order p_order)
         {
-            return _repo.PlaceOrder(p_customer, p_order);
+             _repo.PlaceOrder(p_customer, p_order);
         }
     }
 }

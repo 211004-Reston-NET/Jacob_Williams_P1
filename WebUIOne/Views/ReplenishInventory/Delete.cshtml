@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model WebUIOne.Models.ReplenishInventoryVM
+
+<h1>Replenish Inventory Page</h1>
+<br />
+<br />
+
+<h1>@ViewData["LineItemId"]</h1>
+<h1>@ViewData["LineItemQuantity"]</h1>
+
+<br />
+<br />
+
+<form asp-action="Delete">
+    <div class="mb-3">
+        <label asp-for="LineItemQuantity" class="form-label">How Many Would You Like To Add?</label>
+        <input asp-for="LineItemQuantity" type="text" class="form-control">
+        <input asp-for="LineItemId" type="hidden">
+        <span asp-validation-for="LineItemQuantity" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary" value="Delete">Update Inventory</button>
+</form>

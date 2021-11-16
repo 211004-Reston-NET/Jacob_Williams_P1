@@ -58,7 +58,8 @@ namespace Models
             }
         }
         public virtual StoreFront StoreFront { get; set; }
-        public virtual ICollection<ItemsInOrder> ItemsInOrders { get; set; }
+        public virtual List<Order> Orders { get; set; }
+        public virtual List<ItemsInOrder> ItemsInOrder { get; set; }
         public Product Product { get; set; }
     }
     

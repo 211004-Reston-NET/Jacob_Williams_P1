@@ -74,7 +74,7 @@ namespace Models
         }
         public virtual Customer Customer { get; set; }
         public virtual StoreFront StoreFront { get; set; }
-        public virtual List<ItemsInOrder> ItemsInOrders { get; set; }
+        //public virtual List<ItemsInOrder> ItemsInOrders { get; set; }
     }
     
 }

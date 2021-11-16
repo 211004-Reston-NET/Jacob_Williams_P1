@@ -53,26 +53,26 @@ namespace DataLogic
                 entity.Property(e => e.PhoneNumber).HasColumnName("Customer_Phonenumber");
             });
 
-            modelBuilder.Entity<ItemsInOrder>(entity =>
-            {
-                entity.ToTable("ItemsInOrder");
+            //modelBuilder.Entity<ItemsInOrder>(entity =>
+            //{
+            //    entity.ToTable("ItemsInOrder");
 
-                entity.Property(e => e.ItemsInOrderId).HasColumnName("ItemsInOrder_Id");
+            //    entity.Property(e => e.ItemsInOrderId).HasColumnName("ItemsInOrder_Id");
 
-                entity.Property(e => e.LineItemId).HasColumnName("LineItem_Id");
+            //    entity.Property(e => e.LineItemId).HasColumnName("LineItem_Id");
 
-                entity.Property(e => e.OrdersId).HasColumnName("Orders_Id");       
+            //    entity.Property(e => e.OrdersId).HasColumnName("Orders_Id");       
 
-                entity.HasOne(d => d.LineItem)
-                    .WithMany(p => p.ItemsInOrders)
-                    .HasForeignKey(d => d.LineItemId)
-                    .HasConstraintName("FK__ItemsInOr__LineI__29221CFB");
+            //    entity.HasOne(d => d.LineItem)
+            //        .WithMany(p => p.ItemsInOrder)
+            //        .HasForeignKey(d => d.LineItemId)
+            //        .HasConstraintName("FK__ItemsInOr__LineI__29221CFB");
 
-                entity.HasOne(d => d.Orders)
-                    .WithMany(p => p.ItemsInOrders)
-                    .HasForeignKey(d => d.OrdersId)
-                    .HasConstraintName("FK__ItemsInOr__Order__2A164134");
-            });
+            //    entity.HasOne(d => d.Orders)
+            //        .WithMany(p => p.ItemsInOrder)
+            //        .HasForeignKey(d => d.OrdersId)
+            //        .HasConstraintName("FK__ItemsInOr__Order__2A164134");
+            //});
 
             modelBuilder.Entity<LineItems>(entity =>
             {

@@ -11,6 +11,8 @@ namespace BusinessLogic
         Customer AddCustomer(Customer p_rest);
         Customer GetCustomer(string p_name, string p_address);
 
+        Customer GetCustomerById(int p_id);
+
         
     }
 

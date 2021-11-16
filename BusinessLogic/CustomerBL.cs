@@ -37,5 +37,10 @@ namespace BusinessLogic
             List<Customer> listOfCustomer = _repo.GetAllCustomer();
             return listOfCustomer.FirstOrDefault(cust => cust.Name.ToLower().Contains(p_name.ToLower()) && cust.Address.ToLower().Contains(p_address.ToLower()));
         }
+
+        public Customer GetCustomerById(int p_id)
+        {
+            return _repo.GetCustomerById(p_id);
+        }
     }
 }

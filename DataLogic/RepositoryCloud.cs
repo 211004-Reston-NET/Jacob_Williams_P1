@@ -114,21 +114,22 @@ namespace DataLogic
             ).ToList();
         }
 
-        public Models.Order PlaceOrder(Models.Customer p_customer, Models.Order p_order)
+        public void PlaceOrder(Models.Customer p_customer, Models.Order p_order)
         {
             var customer = _context.Customers
-                .FirstOrDefault<Customer>(cust => cust.CustomerId == p_customer.CustomerId);
+                           .AsNoTracking()
+                           .FirstOrDefault<Customer>(cust => cust.CustomerId == p_customer.CustomerId);
                 customer.Orders.Add(new Order()
                 {
-                    OrdersId = p_order.OrdersId,
+                    Address = p_order.Address,
+                    CustomerId = p_order.CustomerId,
                     TotalPrice = p_order.TotalPrice,
                     StoreFrontId = p_order.StoreFrontId,
-                    CustomerId = p_order.CustomerId,
-                    Address = p_order.Address
-                });
+                    LineItems = p_order.LineItems
+                }
+                    );
                 _context.SaveChanges();
-                return p_order;
-        }
+    }
 
         public Order LineItemIventory(LineItems p_lineItemQuantity, LineItems p_lineItemId)
         {
@@ -206,14 +207,9 @@ namespace DataLogic
 
         public LineItems GetLineItemById(int p_id)
         {
-            LineItems lineItemIdFound = _context.LineItems.AsNoTracking().FirstOrDefault(rev => rev.LineItemId == p_id);
-            return new Model.LineItems()
-            {
-                LineItemId = lineItemIdFound.LineItemId,
-                LineItemQuantity = lineItemIdFound.LineItemQuantity,
-                StoreFrontId = lineItemIdFound.StoreFrontId,
-                ProductId = lineItemIdFound.ProductId
-            };
+            return _context.LineItems
+                .Include("Product")
+                .AsNoTracking().FirstOrDefault(item => item.LineItemId == p_id);
         }
 
         public Models.LineItems UpdateInventory(Models.LineItems p_upd)
@@ -229,6 +225,16 @@ namespace DataLogic
             _context.SaveChanges();
 
             return p_upd;
+        }
+
+        public Customer GetCustomerById(int p_id)
+        {
+            return _context.Customers.Find(p_id);
+        }
+
+        public StoreFront GetStoreFrontById(int p_id)
+        {
+            return _context.StoreFronts.Find(p_id);
         }
     }
 }

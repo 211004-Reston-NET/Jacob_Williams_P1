@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<WebUIOne.Models.LineItemVM>
+@{ var order = Model;
+}
+
+
+<h1 class="display-4">Your Cart Contains:</h1>
+<br />
+<br />
+
+<table>
+    <tr>
+        <th>ItemId</th>
+        <th>Quantity</th>
+        <th>ProductId</th>
+        <th>ProductName</th>
+    </tr>
+    @foreach (LineItemVM item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.LineItemId)</td>
+            <td>@Html.DisplayFor(modelItem => item.LineItemQuantity)</td>
+            <td>@Html.DisplayFor(modelItem => item.ProductId)</td>
+            <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
+        </tr>
+    }
+
+</table>
+
+<button>@Html.ActionLink("Keep Shopping", "Index", "LineItem", new { p_storeFrontId = Model.ElementAt(0).StoreFrontId }, new { @style = "color: red" }) </button>
+<form asp-action="Create">
+    <input type="hidden" asp-for="@order" />
+    <input type="submit" value="PlaceOrder" class="btn btn-primary" />
+</form>
+
