@@ -29,7 +29,7 @@ Current Functionalities:
 * Order History By Store Location
 * Replenish Store Inventory
 
-Future Functionalities
+Future Functionalities:
 
 * Refunding For Returned Orders
 * Images For Vairous Items
