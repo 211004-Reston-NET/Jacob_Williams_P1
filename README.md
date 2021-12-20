@@ -43,7 +43,9 @@ Azure Deployment Link: https://project-1-web-app.azurewebsites.net
 To Run The App Locally:
 * Download VS Studio Community Edition
 * Clone Repo Using https://github.com/211004-Reston-NET/Jacob_Williams_P1.git
-* Open Jacob
+* Open The Application
+* Run Command: dotnet build
+* Click the Green IIS Express Button To Run The Application
 
 ## Usage
 
