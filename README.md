@@ -32,7 +32,8 @@ Current Functionalities:
 Future Functionalities:
 
 * Refunding For Returned Orders
-* Images For Vairous Items
+* Images For Various Items
+* More Dynamic Order History System
 
 ## Getting Started
 Clone Link: https://github.com/211004-Reston-NET/Jacob_Williams_P1.git
