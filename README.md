@@ -35,8 +35,9 @@ Future Functionalities
 * Images For Vairous Items
 
 ## Getting Started
-(include git clone command) 
-(include all environment setup steps)
+Clone Link: https://github.com/211004-Reston-NET/Jacob_Williams_P1.git
+
+Azure Deployment Link: https://project-1-web-app.azurewebsites.net
 
 ## Usage
 
